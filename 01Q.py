@@ -1,3 +1,4 @@
+#
 def solution(s):
 	input_string_length = len(s)
 	minimal_compressed_length = 1001
