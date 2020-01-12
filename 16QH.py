@@ -41,7 +41,7 @@ def solution(n):
     answer_list = [i for i in range(2, n + 1) if n_list[i] == True]
     answer = len(answer_list)
     return answer
-# 왜 안되지.... ㅠㅠ 
+# 소수찾기
         
 
 
