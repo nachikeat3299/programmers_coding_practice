@@ -1,6 +1,7 @@
 # 0112(0110) 1245
 # 0112(0110) 1304
 # 시저 암호
+from testBench import *
 
 def solution(s, n):
     answer = ''
@@ -26,11 +27,29 @@ def solution(s, n):
 
     return answer
 
-testCases = list()
-testCases.append(["AB", 1])
-testCases.append(["z", 1])
-testCases.append(["a B z", 4])
+def solution_jh(s, n):
+    answer = ""
 
-if __name__ == "__main__":
-    for t in testCases:
-        print(solution(t[0], t[1]))
+    for st in s:
+        
+        if st == " ":
+            answer += " "
+            continue
+
+        if ord(st) > 96:
+            # 소문자인 경우
+            answer += chr(ord('a') + (ord(st) - ord('a') + n) % 26)
+
+        elif ord(st) > 64:
+            # 대문자인 경우
+            answer += chr(ord('A') + (ord(st) - ord('A') + n) % 26)
+
+    return answer
+
+TestCases.addCase(["AB", 1], "BC")
+TestCases.addCase(["z", 1], "a")
+TestCases.addCase(["a B z", 4], "e F d")
+
+TestCases.solve(solution)
+TestCases.printResult()
+
